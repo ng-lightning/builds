@@ -1,0 +1,19 @@
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { NglRating } from './rating';
+import { NglRatingIconTemplate } from './icons';
+import { NglIconsModule } from '../icons/module';
+const DIRECTIVES = [
+    NglRating,
+    NglRatingIconTemplate,
+];
+export class NglRatingsModule {
+}
+NglRatingsModule.decorators = [
+    { type: NgModule, args: [{
+                imports: [CommonModule, NglIconsModule],
+                declarations: [...DIRECTIVES],
+                exports: [...DIRECTIVES],
+            },] }
+];
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoibW9kdWxlLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiLi4vLi4vLi4vLi4vLi4vcHJvamVjdHMvbmctbGlnaHRuaW5nL3NyYy9saWIvcmF0aW5ncy9tb2R1bGUudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEsT0FBTyxFQUFFLFFBQVEsRUFBRSxNQUFNLGVBQWUsQ0FBQztBQUN6QyxPQUFPLEVBQUUsWUFBWSxFQUFFLE1BQU0saUJBQWlCLENBQUM7QUFFL0MsT0FBTyxFQUFFLFNBQVMsRUFBRSxNQUFNLFVBQVUsQ0FBQztBQUNyQyxPQUFPLEVBQUUscUJBQXFCLEVBQUUsTUFBTSxTQUFTLENBQUM7QUFDaEQsT0FBTyxFQUFFLGNBQWMsRUFBRSxNQUFNLGlCQUFpQixDQUFDO0FBRWpELE1BQU0sVUFBVSxHQUFHO0lBQ2pCLFNBQVM7SUFDVCxxQkFBcUI7Q0FDdEIsQ0FBQztBQU9GLE1BQU0sT0FBTyxnQkFBZ0I7OztZQUw1QixRQUFRLFNBQUM7Z0JBQ1IsT0FBTyxFQUFFLENBQUMsWUFBWSxFQUFFLGNBQWMsQ0FBQztnQkFDdkMsWUFBWSxFQUFFLENBQUUsR0FBRyxVQUFVLENBQUU7Z0JBQy9CLE9BQU8sRUFBRSxDQUFFLEdBQUcsVUFBVSxDQUFFO2FBQzNCIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgTmdNb2R1bGUgfSBmcm9tICdAYW5ndWxhci9jb3JlJztcbmltcG9ydCB7IENvbW1vbk1vZHVsZSB9IGZyb20gJ0Bhbmd1bGFyL2NvbW1vbic7XG5cbmltcG9ydCB7IE5nbFJhdGluZyB9IGZyb20gJy4vcmF0aW5nJztcbmltcG9ydCB7IE5nbFJhdGluZ0ljb25UZW1wbGF0ZSB9IGZyb20gJy4vaWNvbnMnO1xuaW1wb3J0IHsgTmdsSWNvbnNNb2R1bGUgfSBmcm9tICcuLi9pY29ucy9tb2R1bGUnO1xuXG5jb25zdCBESVJFQ1RJVkVTID0gW1xuICBOZ2xSYXRpbmcsXG4gIE5nbFJhdGluZ0ljb25UZW1wbGF0ZSxcbl07XG5cbkBOZ01vZHVsZSh7XG4gIGltcG9ydHM6IFtDb21tb25Nb2R1bGUsIE5nbEljb25zTW9kdWxlXSxcbiAgZGVjbGFyYXRpb25zOiBbIC4uLkRJUkVDVElWRVMgXSxcbiAgZXhwb3J0czogWyAuLi5ESVJFQ1RJVkVTIF0sXG59KVxuZXhwb3J0IGNsYXNzIE5nbFJhdGluZ3NNb2R1bGUge31cbiJdfQ==

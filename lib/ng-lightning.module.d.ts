@@ -1,0 +1,37 @@
+export { NglAccordionModule } from './accordion/module';
+export { NglAlertModule } from './alert/module';
+export { NglAvatarModule } from './avatar/module';
+export { NglBadgesModule } from './badges/module';
+export { NglBreadcrumbsModule } from './breadcrumbs/module';
+export { NglButtonIconsModule } from './button-icons/module';
+export { NglButtonsModule } from './buttons/module';
+export { NglCarouselModule } from './carousel/module';
+export { NglCheckboxesModule } from './checkboxes/module';
+export { NglColorpickerModule } from './colorpicker/module';
+export { NglComboboxesModule } from './comboboxes/module';
+export { NglDatatablesModule } from './datatables/module';
+export { NglDatepickersModule } from './datepickers/module';
+export { NglDynamicIconsModule } from './dynamicicons/module';
+export { NglFilesModule } from './files/module';
+export { NglFileUploadModule } from './file-upload/module';
+export { NglIconsModule } from './icons/module';
+export { NglInputModule } from './input/module';
+export { NglMenusModule } from './menus/module';
+export { NglModalsModule } from './modals/module';
+export { NglToastModule } from './toast/module';
+export { NglPaginationsModule } from './paginations/module';
+export { NglPickModule } from './pick/module';
+export { NglPillsModule } from './pills/module';
+export { NglPopoversModule } from './popovers/module';
+export { NglProgressBarModule } from './progressbar/module';
+export { NglRadiosModule } from './radio-group/module';
+export { NglRatingsModule } from './ratings/module';
+export { NglSectionsModule } from './sections/module';
+export { NglSelectModule } from './select/module';
+export { NglSliderModule } from './slider/module';
+export { NglSpinnersModule } from './spinners/module';
+export { NglTabsModule } from './tabs/module';
+export { NglTextareaModule } from './textarea/module';
+export { NglTooltipsModule } from './tooltips/module';
+export declare class NglModule {
+}
