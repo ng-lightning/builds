@@ -3653,7 +3653,7 @@ class NglCombobox {
         return this.isLookup && !this.multiple && this.selectedOptions.length > 0;
     }
     ngOnChanges(changes) {
-        if (changes.selection || changes.data) {
+        if (changes.selection || (this.selection && changes.data)) {
             this.calculateDisplayValue();
         }
     }

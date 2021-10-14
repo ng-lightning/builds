@@ -4327,7 +4327,7 @@
             configurable: true
         });
         NglCombobox.prototype.ngOnChanges = function (changes) {
-            if (changes.selection || changes.data) {
+            if (changes.selection || (this.selection && changes.data)) {
                 this.calculateDisplayValue();
             }
         };
