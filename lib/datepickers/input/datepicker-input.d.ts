@@ -57,6 +57,8 @@ export declare class NglDatepickerInput implements ControlValueAccessor, Validat
      * The maximum valid date.
      */
     max: Date;
+    set required(required: any);
+    isRequired: Boolean;
     /**
      * Text for button to open calendar.
      */
