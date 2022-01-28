@@ -1,4 +1,4 @@
-import { EventEmitter, OnChanges, TemplateRef, OnDestroy, QueryList, SimpleChanges, NgZone, ElementRef, ChangeDetectorRef } from '@angular/core';
+import { EventEmitter, OnChanges, TemplateRef, OnDestroy, QueryList, SimpleChanges, NgZone, ElementRef, ChangeDetectorRef, AfterContentInit } from '@angular/core';
 import { ActiveDescendantKeyManager } from '@angular/cdk/a11y';
 import { ConnectionPositionPair, CdkOverlayOrigin, CdkConnectedOverlay } from '@angular/cdk/overlay';
 import { NglComboboxOption } from './combobox-option';
@@ -10,7 +10,7 @@ export interface NglComboboxOptionItem {
     label?: string;
     disabled?: boolean;
 }
-export declare class NglCombobox implements OnChanges, OnDestroy {
+export declare class NglCombobox implements OnChanges, OnDestroy, AfterContentInit {
     private ngZone;
     private cd;
     private service;
@@ -40,6 +40,7 @@ export declare class NglCombobox implements OnChanges, OnDestroy {
      */
     removeSelectedLabel: string;
     readonly options?: QueryList<NglComboboxOption>;
+    hasErrors: boolean;
     set data(data: any[]);
     get data(): any[];
     overlayOrigin?: CdkOverlayOrigin;
@@ -50,14 +51,17 @@ export declare class NglCombobox implements OnChanges, OnDestroy {
     /** Manages active item in option list based on key events. */
     keyManager?: ActiveDescendantKeyManager<NglComboboxOption> | null;
     private optionChangesSubscription?;
+    private ɵRequiredSubscription?;
     private _data?;
     private keyboardSubscription?;
+    required: boolean;
     selectionValueFn: (selection: string[]) => string;
     get activeOption(): NglComboboxOption | null;
     get selectedOptions(): NglComboboxOptionItem[];
     get isLookup(): boolean;
     get hasLookupSingleSelection(): boolean;
     constructor(defaultConfig: NglComboboxConfig, ngZone: NgZone, cd: ChangeDetectorRef, service: NglComboboxService);
+    ngAfterContentInit(): void;
     ngOnChanges(changes: SimpleChanges): void;
     onAttach(): void;
     onDetach(): void;
@@ -81,4 +85,5 @@ export declare class NglCombobox implements OnChanges, OnDestroy {
     private calculateDisplayValue;
     private keyboardSubscribe;
     private updateMenuHeight;
+    private calculateErrors;
 }

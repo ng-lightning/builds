@@ -3479,6 +3479,7 @@ class NglComboboxInput {
         this.service = service;
         this.el = el;
         this.renderer = renderer;
+        this.ɵRequiredSubject = new BehaviorSubject(false);
         const { nativeElement } = this.el;
         this.renderer.addClass(nativeElement, 'slds-input');
         this.renderer.addClass(nativeElement, 'slds-combobox__input');
@@ -3499,6 +3500,9 @@ class NglComboboxInput {
     }
     get hasReadonlyValue() {
         return this.service.combobox.hasLookupSingleSelection;
+    }
+    set required(required) {
+        this.ɵRequiredSubject.next(toBoolean(required));
     }
     get id() {
         return this.el.nativeElement.id;
@@ -3578,6 +3582,7 @@ NglComboboxInput.propDecorators = {
     isReadonly: [{ type: HostBinding, args: ['readOnly',] }],
     ariaAutocomplete: [{ type: HostBinding, args: ['attr.aria-autocomplete',] }],
     hasReadonlyValue: [{ type: HostBinding, args: ['class.slds-combobox__input-value',] }],
+    required: [{ type: Input }],
     onMouseInteraction: [{ type: HostListener, args: ['click',] }],
     onBlur: [{ type: HostListener, args: ['blur',] }],
     onKeyboard: [{ type: HostListener, args: ['keydown', ['$event'],] }]
@@ -3606,6 +3611,7 @@ class NglCombobox {
         this.multiple = false;
         this.visibleLength = 5;
         this.closeOnSelection = true;
+        this.hasErrors = false;
         this.overlayWidth = 0;
         this.overlayPositions = [...DEFAULT_DROPDOWN_POSITIONS['left']];
         this.selectionValueFn = (selection) => {
@@ -3652,10 +3658,21 @@ class NglCombobox {
     get hasLookupSingleSelection() {
         return this.isLookup && !this.multiple && this.selectedOptions.length > 0;
     }
+    ngAfterContentInit() {
+        if (!this.inputEl) {
+            throw Error(`[ng-lightning] Couldn't find an <input> with [nglCombobox] attribute inside NglCombobox`);
+        }
+        this.ɵRequiredSubscription = this.inputEl.ɵRequiredSubject.subscribe((required) => {
+            this.required = required;
+            this.cd.detectChanges();
+        });
+        this.calculateErrors();
+    }
     ngOnChanges(changes) {
         if (changes.selection || (this.selection && changes.data)) {
             this.calculateDisplayValue();
         }
+        setTimeout(() => this.calculateErrors(), 0);
     }
     onAttach() {
         var _a, _b, _c, _d, _e;
@@ -3734,7 +3751,9 @@ class NglCombobox {
         return isOptionSelected(value, this.selection, this.multiple);
     }
     ngOnDestroy() {
+        var _a;
         this.detach();
+        (_a = this.ɵRequiredSubscription) === null || _a === void 0 ? void 0 : _a.unsubscribe();
     }
     close() {
         this.openChange.emit(false);
@@ -3787,12 +3806,18 @@ class NglCombobox {
             }
         });
     }
+    calculateErrors() {
+        if (this.required) {
+            this.hasErrors = !toBoolean(this.selection);
+        }
+        this.cd.detectChanges();
+    }
 }
 NglCombobox.decorators = [
     { type: Component, args: [{
                 selector: 'ngl-combobox',
                 changeDetection: ChangeDetectionStrategy.OnPush,
-                template: "\n<label [nglFormLabel]=\"label\" [attr.for]=\"inputEl.id\"></label>\n<div class=\"slds-form-element__control\">\n  <div class=\"slds-combobox_container\" [class.slds-has-selection]=\"hasLookupSingleSelection\">\n    <div class=\"slds-combobox slds-dropdown-trigger slds-dropdown-trigger_click\" [attr.aria-expanded]=\"open\" aria-haspopup=\"listbox\" role=\"combobox\" [class.slds-is-open]=\"open\" [attr.aria-owns]=\"uid\">\n      <div class=\"slds-combobox__form-element slds-input-has-icon\" role=\"none\" cdkOverlayOrigin #overlayOrigin=\"cdkOverlayOrigin\" [class.slds-input-has-icon_group-right]=\"loading\" [class.slds-input-has-icon_right]=\"!loading\">\n        <ng-content select=\"input\"></ng-content>\n        <div class=\"slds-input__icon-group slds-input__icon-group_right\" *ngIf=\"loading; else iconRight\">\n          <div class=\"slds-spinner slds-spinner_brand slds-spinner_x-small slds-input__spinner\" role=\"status\"><span class=\"slds-assistive-text\">{{ loadingLabel }}</span>\n            <div class=\"slds-spinner__dot-a\"></div>\n            <div class=\"slds-spinner__dot-b\"></div>\n          </div>\n          <ng-template [ngTemplateOutlet]=\"iconRight\"></ng-template>\n        </div>\n        <ng-template #iconRight>\n          <button class=\"slds-button slds-button_icon slds-input__icon slds-input__icon_right\" *ngIf=\"hasLookupSingleSelection; else iconTpl\" type=\"button\" (click)=\"onClearSelection()\" [title]=\"removeSelectedLabel\">\n            <svg class=\"slds-button__icon\" nglIconName=\"utility:close\"></svg><span class=\"slds-assistive-text\">{{ removeSelectedLabel }}</span>\n          </button>\n        </ng-template>\n        <ng-template #iconTpl><span class=\"slds-icon_container slds-input__icon slds-input__icon_right\">\n            <svg class=\"slds-icon slds-icon_x-small slds-icon-text-default\" [nglIconName]=\"inputIconRight()\"></svg></span></ng-template>\n      </div>\n    </div>\n  </div>\n</div>\n<ng-template cdkConnectedOverlay #cdkOverlay=\"cdkConnectedOverlay\" [cdkConnectedOverlayPositions]=\"overlayPositions\" [cdkConnectedOverlayOrigin]=\"overlayOrigin\" [cdkConnectedOverlayMinWidth]=\"overlayWidth\" [cdkConnectedOverlayOpen]=\"open\" (nglOverlayScrolledOutsideView)=\"close()\" (attach)=\"onAttach()\" (detach)=\"onDetach()\">\n  <div class=\"slds-dropdown slds-dropdown_fluid\" #dropdown [attr.id]=\"uid\" role=\"listbox\" [ngClass]=\"dropdownClass()\" (mousedown)=\"$event.preventDefault()\">\n    <ul class=\"slds-listbox slds-listbox_vertical\" role=\"presentation\">\n      <li *ngFor=\"let d of data; trackBy: trackByOption\" nglComboboxOption [value]=\"d.value\" [label]=\"d.label\" [disabled]=\"d.disabled\" [selected]=\"isSelected(d.value)\"></li>\n      <li class=\"slds-listbox__item\" *ngIf=\"loadingMore\" role=\"presentation\">\n        <div class=\"slds-align_absolute-center slds-p-top_medium\">\n          <div class=\"slds-spinner slds-spinner_x-small slds-spinner_inline\" role=\"status\">\n            <div class=\"slds-assistive-text\">{{ loadingLabel }}</div>\n            <div class=\"slds-spinner__dot-a\"></div>\n            <div class=\"slds-spinner__dot-b\"></div>\n          </div>\n        </div>\n      </li>\n      <li class=\"slds-listbox__item\" *ngIf=\"hasNoMatches()\" role=\"presentation\" aria-live=\"polite\">\n        <div class=\"slds-align_absolute-center\"><span role=\"status\">{{ noOptionsFound }}</span></div>\n      </li>\n    </ul>\n  </div>\n</ng-template>",
+                template: "\n<label [nglFormLabel]=\"label\" [attr.for]=\"inputEl.id\" [required]=\"required\"></label>\n<div class=\"slds-form-element__control\">\n  <div class=\"slds-combobox_container\" [class.slds-has-selection]=\"hasLookupSingleSelection\">\n    <div class=\"slds-combobox slds-dropdown-trigger slds-dropdown-trigger_click\" [attr.aria-expanded]=\"open\" aria-haspopup=\"listbox\" role=\"combobox\" [class.slds-is-open]=\"open\" [attr.aria-owns]=\"uid\">\n      <div class=\"slds-combobox__form-element slds-input-has-icon\" role=\"none\" cdkOverlayOrigin #overlayOrigin=\"cdkOverlayOrigin\" [class.slds-input-has-icon_group-right]=\"loading\" [class.slds-input-has-icon_right]=\"!loading\">\n        <ng-content select=\"input\"></ng-content>\n        <div class=\"slds-input__icon-group slds-input__icon-group_right\" *ngIf=\"loading; else iconRight\">\n          <div class=\"slds-spinner slds-spinner_brand slds-spinner_x-small slds-input__spinner\" role=\"status\"><span class=\"slds-assistive-text\">{{ loadingLabel }}</span>\n            <div class=\"slds-spinner__dot-a\"></div>\n            <div class=\"slds-spinner__dot-b\"></div>\n          </div>\n          <ng-template [ngTemplateOutlet]=\"iconRight\"></ng-template>\n        </div>\n        <ng-template #iconRight>\n          <button class=\"slds-button slds-button_icon slds-input__icon slds-input__icon_right\" *ngIf=\"hasLookupSingleSelection; else iconTpl\" type=\"button\" (click)=\"onClearSelection()\" [title]=\"removeSelectedLabel\">\n            <svg class=\"slds-button__icon\" nglIconName=\"utility:close\"></svg><span class=\"slds-assistive-text\">{{ removeSelectedLabel }}</span>\n          </button>\n        </ng-template>\n        <ng-template #iconTpl><span class=\"slds-icon_container slds-input__icon slds-input__icon_right\">\n            <svg class=\"slds-icon slds-icon_x-small slds-icon-text-default\" [nglIconName]=\"inputIconRight()\"></svg></span></ng-template>\n      </div>\n    </div>\n  </div>\n</div>\n<ng-template cdkConnectedOverlay #cdkOverlay=\"cdkConnectedOverlay\" [cdkConnectedOverlayPositions]=\"overlayPositions\" [cdkConnectedOverlayOrigin]=\"overlayOrigin\" [cdkConnectedOverlayMinWidth]=\"overlayWidth\" [cdkConnectedOverlayOpen]=\"open\" (nglOverlayScrolledOutsideView)=\"close()\" (attach)=\"onAttach()\" (detach)=\"onDetach()\">\n  <div class=\"slds-dropdown slds-dropdown_fluid\" #dropdown [attr.id]=\"uid\" role=\"listbox\" [ngClass]=\"dropdownClass()\" (mousedown)=\"$event.preventDefault()\">\n    <ul class=\"slds-listbox slds-listbox_vertical\" role=\"presentation\">\n      <li *ngFor=\"let d of data; trackBy: trackByOption\" nglComboboxOption [value]=\"d.value\" [label]=\"d.label\" [disabled]=\"d.disabled\" [selected]=\"isSelected(d.value)\"></li>\n      <li class=\"slds-listbox__item\" *ngIf=\"loadingMore\" role=\"presentation\">\n        <div class=\"slds-align_absolute-center slds-p-top_medium\">\n          <div class=\"slds-spinner slds-spinner_x-small slds-spinner_inline\" role=\"status\">\n            <div class=\"slds-assistive-text\">{{ loadingLabel }}</div>\n            <div class=\"slds-spinner__dot-a\"></div>\n            <div class=\"slds-spinner__dot-b\"></div>\n          </div>\n        </div>\n      </li>\n      <li class=\"slds-listbox__item\" *ngIf=\"hasNoMatches()\" role=\"presentation\" aria-live=\"polite\">\n        <div class=\"slds-align_absolute-center\"><span role=\"status\">{{ noOptionsFound }}</span></div>\n      </li>\n    </ul>\n  </div>\n</ng-template>",
                 host: {
                     'class.slds-form-element': 'true',
                 },
@@ -3822,6 +3847,7 @@ NglCombobox.propDecorators = {
     noOptionsFound: [{ type: Input }],
     removeSelectedLabel: [{ type: Input }],
     options: [{ type: ViewChildren, args: [NglComboboxOption,] }],
+    hasErrors: [{ type: HostBinding, args: ['class.slds-has-error',] }],
     data: [{ type: Input, args: ['options',] }],
     overlayOrigin: [{ type: ViewChild, args: ['overlayOrigin', { static: true },] }],
     cdkOverlay: [{ type: ViewChild, args: ['cdkOverlay',] }],
