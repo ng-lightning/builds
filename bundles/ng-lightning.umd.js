@@ -4373,10 +4373,15 @@
             this.keyboardSubscribe(this.variant === 'base');
             // When it is open we listen for option changes in order to fix active option and handle scroll
             this.optionChangesSubscription = (_e = this.options) === null || _e === void 0 ? void 0 : _e.changes.subscribe(function () {
-                var _a, _b;
-                if (!_this.activeOption || ((_a = _this.options) === null || _a === void 0 ? void 0 : _a.toArray().indexOf(_this.activeOption)) === -1) {
-                    // Activate first option if active one is destroyed
-                    (_b = _this.keyManager) === null || _b === void 0 ? void 0 : _b.setFirstItemActive();
+                var _a, _b, _c;
+                var options = ((_a = _this.options) === null || _a === void 0 ? void 0 : _a.toArray()) || [];
+                if (!_this.activeOption || options.indexOf(_this.activeOption) === -1) {
+                    if (_this.isLookup && options.length === 0) {
+                        (_b = _this.keyManager) === null || _b === void 0 ? void 0 : _b.setActiveItem(null);
+                    }
+                    else {
+                        (_c = _this.keyManager) === null || _c === void 0 ? void 0 : _c.setFirstItemActive();
+                    }
                 }
                 else {
                     _this.activeOption.scrollIntoView();

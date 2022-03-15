@@ -3692,10 +3692,15 @@ class NglCombobox {
         this.keyboardSubscribe(this.variant === 'base');
         // When it is open we listen for option changes in order to fix active option and handle scroll
         this.optionChangesSubscription = (_e = this.options) === null || _e === void 0 ? void 0 : _e.changes.subscribe(() => {
-            var _a, _b;
-            if (!this.activeOption || ((_a = this.options) === null || _a === void 0 ? void 0 : _a.toArray().indexOf(this.activeOption)) === -1) {
-                // Activate first option if active one is destroyed
-                (_b = this.keyManager) === null || _b === void 0 ? void 0 : _b.setFirstItemActive();
+            var _a, _b, _c;
+            const options = ((_a = this.options) === null || _a === void 0 ? void 0 : _a.toArray()) || [];
+            if (!this.activeOption || options.indexOf(this.activeOption) === -1) {
+                if (this.isLookup && options.length === 0) {
+                    (_b = this.keyManager) === null || _b === void 0 ? void 0 : _b.setActiveItem(null);
+                }
+                else {
+                    (_c = this.keyManager) === null || _c === void 0 ? void 0 : _c.setFirstItemActive();
+                }
             }
             else {
                 this.activeOption.scrollIntoView();
