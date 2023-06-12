@@ -1,4 +1,5 @@
 import { EventEmitter } from '@angular/core';
+import * as i0 from "@angular/core";
 export declare class NglColorpickerInputs {
     set hex(hex: string);
     get hex(): string;
@@ -13,4 +14,6 @@ export declare class NglColorpickerInputs {
     get isHexInvalid(): boolean;
     isColorNumberValid(key: string): boolean;
     isRGBValid(): boolean;
+    static ɵfac: i0.ɵɵFactoryDeclaration<NglColorpickerInputs, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<NglColorpickerInputs, "ngl-colorpicker-inputs", never, { "hex": "hex"; }, { "hexChange": "hexChange"; }, never, never, false, never>;
 }

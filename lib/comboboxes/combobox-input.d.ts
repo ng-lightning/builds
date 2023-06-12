@@ -1,6 +1,7 @@
 import { ElementRef, Renderer2 } from '@angular/core';
 import { Observable, BehaviorSubject } from 'rxjs';
 import { NglComboboxService } from './combobox.service';
+import * as i0 from "@angular/core";
 export declare class NglComboboxInput {
     private service;
     private el;
@@ -19,4 +20,6 @@ export declare class NglComboboxInput {
     onMouseInteraction(): void;
     onBlur(): void;
     onKeyboard(evt: KeyboardEvent): void;
+    static ɵfac: i0.ɵɵFactoryDeclaration<NglComboboxInput, never>;
+    static ɵdir: i0.ɵɵDirectiveDeclaration<NglComboboxInput, "input[nglCombobox]", never, { "required": "required"; }, {}, never, never, false, never>;
 }

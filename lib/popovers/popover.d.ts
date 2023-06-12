@@ -4,6 +4,7 @@ import { FocusTrapFactory } from '@angular/cdk/a11y';
 import { Variant, Size } from './trigger';
 import { HostService } from '../common/host/host.service';
 import { isTemplateRef } from '../util/check';
+import * as i0 from "@angular/core";
 export declare class NglPopover implements OnInit, OnDestroy {
     private hostService;
     element: ElementRef;
@@ -36,4 +37,6 @@ export declare class NglPopover implements OnInit, OnDestroy {
     markForCheck(): void;
     onClose(): void;
     private setHostClass;
+    static ɵfac: i0.ɵɵFactoryDeclaration<NglPopover, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<NglPopover, "section[ngl-popover]", never, {}, {}, never, never, false, never>;
 }

@@ -1,5 +1,6 @@
 import { EventEmitter, TemplateRef, OnInit } from '@angular/core';
 import { isTemplateRef } from '../util/check';
+import * as i0 from "@angular/core";
 export declare class NglPill implements OnInit {
     isTemplateRef: typeof isTemplateRef;
     canRemove: boolean;
@@ -31,4 +32,6 @@ export declare class NglPill implements OnInit {
     ngOnInit(): void;
     onRemove(e: MouseEvent): void;
     get pillIcon(): string | TemplateRef<void>;
+    static ɵfac: i0.ɵɵFactoryDeclaration<NglPill, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<NglPill, "ngl-pill", never, { "icon": "icon"; "avatar": "avatar"; "hasError": "hasError"; "removable": "removable"; "removeTitle": "removeTitle"; }, { "remove": "remove"; }, never, ["a", "*"], false, never>;
 }

@@ -1,5 +1,6 @@
 import { EventEmitter, OnInit, OnDestroy, NgZone } from '@angular/core';
 import { CdkConnectedOverlay, ScrollDispatcher } from '@angular/cdk/overlay';
+import * as i0 from "@angular/core";
 export declare class NglOverlaynglOverlayScrolledOutsideViewDirective implements OnInit, OnDestroy {
     private cdkOverlay;
     private ngZone;
@@ -9,6 +10,8 @@ export declare class NglOverlaynglOverlayScrolledOutsideViewDirective implements
     constructor(cdkOverlay: CdkConnectedOverlay, ngZone: NgZone, scrollDispatcher: ScrollDispatcher);
     ngOnInit(): void;
     ngOnDestroy(): void;
+    static ɵfac: i0.ɵɵFactoryDeclaration<NglOverlaynglOverlayScrolledOutsideViewDirective, [{ self: true; }, null, null]>;
+    static ɵdir: i0.ɵɵDirectiveDeclaration<NglOverlaynglOverlayScrolledOutsideViewDirective, "[nglOverlayScrolledOutsideView]", never, {}, { "overlayOutside": "nglOverlayScrolledOutsideView"; }, never, never, false, never>;
 }
 /**
  * Gets whether an element is scrolled outside of view by its parent scrolling container.

@@ -1,5 +1,6 @@
 import { QueryList, EventEmitter, ElementRef, Renderer2, AfterContentInit } from '@angular/core';
 import { NglTab } from './tab';
+import * as i0 from "@angular/core";
 export declare class NglTabs implements AfterContentInit {
     private element;
     private renderer;
@@ -23,4 +24,6 @@ export declare class NglTabs implements AfterContentInit {
     trackByTab(index: any, tab: NglTab): string;
     private activate;
     private findTab;
+    static ɵfac: i0.ɵɵFactoryDeclaration<NglTabs, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<NglTabs, "ngl-tabset", never, { "variant": "variant"; "setSelected": "selected"; "lazy": "lazy"; }, { "selectedChange": "selectedChange"; }, ["tabs"], never, false, never>;
 }

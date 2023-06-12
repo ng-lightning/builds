@@ -2,6 +2,7 @@ import { ElementRef, Renderer2, ChangeDetectorRef, TemplateRef } from '@angular/
 import { ControlValueAccessor } from '@angular/forms';
 import { IHSV } from './util';
 import { NglColorpickerConfig } from './config';
+import * as i0 from "@angular/core";
 export declare class NglColorpicker implements ControlValueAccessor {
     private el;
     private renderer;
@@ -83,4 +84,6 @@ export declare class NglColorpicker implements ControlValueAccessor {
     canApply(): boolean;
     onInput(hex: string): void;
     get isValidInput(): boolean;
+    static ɵfac: i0.ɵɵFactoryDeclaration<NglColorpicker, [{ optional: true; }, null, null, null]>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<NglColorpicker, "ngl-colorpicker", never, { "label": "label"; "placeholder": "placeholder"; "cancelButtonLabel": "cancelButtonLabel"; "submitButtonLabel": "submitButtonLabel"; "required": "required"; "fieldLevelHelpTooltip": "fieldLevelHelpTooltip"; "invalidColorLabel": "invalidColorLabel"; "swatchTabLabel": "swatchTabLabel"; "customTabLabel": "customTabLabel"; "swatchColors": "swatchColors"; "readonlyInput": "readonlyInput"; "defaultSelectedTab": "defaultSelectedTab"; "variant": "variant"; }, {}, never, never, false, never>;
 }

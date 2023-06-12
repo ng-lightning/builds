@@ -6,6 +6,7 @@ import { HostService } from '../../common/host/host.service';
 import { NglDateAdapter } from '../adapters/date-fns-adapter';
 import { NglDatepickerConfig } from '../config';
 import { IDatepickerInput } from './datepicker-input.interface';
+import * as i0 from "@angular/core";
 export declare class NglDatepickerInput implements ControlValueAccessor, Validator, OnInit, OnChanges, OnDestroy {
     private element;
     private renderer;
@@ -123,4 +124,6 @@ export declare class NglDatepickerInput implements ControlValueAccessor, Validat
     private setPattern;
     private emitSelection;
     private setHostClass;
+    static ɵfac: i0.ɵɵFactoryDeclaration<NglDatepickerInput, [{ optional: true; }, null, null, null, null, null, null, null, null]>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<NglDatepickerInput, "ngl-datepicker-input", never, { "label": "label"; "format": "format"; "delimiter": "delimiter"; "disabled": "disabled"; "dropdownAlign": "dropdownAlign"; "value": "value"; "openOnInputClick": "openOnInputClick"; "min": "min"; "max": "max"; "required": "required"; "selectDateLabel": "selectDateLabel"; "patternPlaceholder": "patternPlaceholder"; "monthNames": "monthNames"; "dayNamesShort": "dayNamesShort"; "dayNamesLong": "dayNamesLong"; "firstDayOfWeek": "firstDayOfWeek"; "showToday": "showToday"; "dateDisabled": "dateDisabled"; "relativeYearFrom": "relativeYearFrom"; "relativeYearTo": "relativeYearTo"; "todayLabel": "todayLabel"; "previousMonthLabel": "previousMonthLabel"; "nextMonthLabel": "nextMonthLabel"; }, { "valueChange": "valueChange"; }, never, ["*"], false, never>;
 }

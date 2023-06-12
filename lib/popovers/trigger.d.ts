@@ -1,6 +1,7 @@
 import { ElementRef, TemplateRef, ViewContainerRef, OnDestroy, OnChanges, SimpleChanges, EventEmitter, Renderer2 } from '@angular/core';
 import { Overlay } from '@angular/cdk/overlay';
 import { Placement } from '../util/overlay-position';
+import * as i0 from "@angular/core";
 export declare type Size = 'small' | 'medium' | 'large' | 'full-width';
 export declare type Variant = 'walkthrough' | 'feature' | 'warning' | 'error' | 'panel';
 export declare class NglPopoverTrigger implements OnChanges, OnDestroy {
@@ -86,4 +87,6 @@ export declare class NglPopoverTrigger implements OnChanges, OnDestroy {
     private subscribeToClickEvents;
     private unsubscribeFromClickEvents;
     private clearGlobalClickTimeout;
+    static ɵfac: i0.ɵɵFactoryDeclaration<NglPopoverTrigger, never>;
+    static ɵdir: i0.ɵɵDirectiveDeclaration<NglPopoverTrigger, "[nglPopover]", ["nglPopover"], { "template": "nglPopover"; "header": "nglPopoverHeader"; "footer": "nglPopoverFooter"; "variant": "nglPopoverVariant"; "size": "nglPopoverSize"; "placement": "nglPopoverPlacement"; "nglOpen": "nglPopoverOpen"; "closeTitle": "nglPopoverCloseTitle"; "popoverClass": "nglPopoverClass"; "closeVisible": "nglPopoverCloseVisible"; }, { "nglPopoverOpenChange": "nglPopoverOpenChange"; }, never, never, false, never>;
 }

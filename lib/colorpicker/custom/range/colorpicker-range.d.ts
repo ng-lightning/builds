@@ -1,5 +1,6 @@
 import { ElementRef, EventEmitter, AfterViewInit, OnDestroy } from '@angular/core';
 import { IHSV } from '../../util';
+import * as i0 from "@angular/core";
 export declare class NglColorpickerRange implements AfterViewInit, OnDestroy {
     private document;
     set hsv(hsv: IHSV);
@@ -24,4 +25,6 @@ export declare class NglColorpickerRange implements AfterViewInit, OnDestroy {
     private emitChange;
     private limit;
     private setupDrag;
+    static ɵfac: i0.ɵɵFactoryDeclaration<NglColorpickerRange, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<NglColorpickerRange, "ngl-colorpicker-range", never, { "hsv": "hsv"; }, { "hsvChange": "hsvChange"; }, never, never, false, never>;
 }

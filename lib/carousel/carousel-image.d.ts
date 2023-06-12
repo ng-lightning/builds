@@ -1,4 +1,5 @@
 import { TemplateRef, Renderer2, ElementRef } from '@angular/core';
+import * as i0 from "@angular/core";
 export declare class NglCarouselImage {
     private el;
     private renderer;
@@ -22,4 +23,6 @@ export declare class NglCarouselImage {
     set labelledby(labelledby: string);
     set active(active: boolean);
     constructor(el: ElementRef, renderer: Renderer2);
+    static ɵfac: i0.ɵɵFactoryDeclaration<NglCarouselImage, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<NglCarouselImage, "ngl-carousel-image", never, { "src": "src"; "header": "header"; "description": "description"; "alternativeText": "alternativeText"; }, {}, never, never, false, never>;
 }

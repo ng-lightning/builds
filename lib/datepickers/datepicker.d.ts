@@ -1,15 +1,18 @@
 import { EventEmitter, ElementRef, OnInit, OnChanges, AfterViewInit, SimpleChanges } from '@angular/core';
-import { NglDatepickerInput } from './input/datepicker-input';
 import { NglDatepickerConfig } from './config';
 import { NglInternalDate } from './util';
 import { NglDatepickerMonth } from './month';
+import * as i0 from "@angular/core";
 export declare class NglDatepicker implements OnInit, OnChanges, AfterViewInit {
-    private dtInput;
     private element;
     monthNames: ReadonlyArray<string>;
     dayNamesShort: ReadonlyArray<string>;
     dayNamesLong: ReadonlyArray<string>;
     dateDisabled: (date: Date) => boolean | null;
+    updateSize: EventEmitter<{
+        width: number;
+        height: number;
+    }>;
     _date: NglInternalDate;
     current: NglInternalDate;
     set date(date: Date);
@@ -50,7 +53,7 @@ export declare class NglDatepicker implements OnInit, OnChanges, AfterViewInit {
     minDate: NglInternalDate;
     maxDate: NglInternalDate;
     monthView: NglDatepickerMonth;
-    constructor(dtInput: NglDatepickerInput, defaultConfig: NglDatepickerConfig, locale: string, element: ElementRef);
+    constructor(defaultConfig: NglDatepickerConfig, locale: string, element: ElementRef);
     ngOnInit(): void;
     ngOnChanges(changes: SimpleChanges): void;
     moveYear(year: string | number): void;
@@ -70,4 +73,6 @@ export declare class NglDatepicker implements OnInit, OnChanges, AfterViewInit {
     /** Date filter for the month */
     private isDisabledDate;
     private setMinMaxDates;
+    static ɵfac: i0.ɵɵFactoryDeclaration<NglDatepicker, [{ optional: true; }, null, null]>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<NglDatepicker, "ngl-datepicker", never, { "monthNames": "monthNames"; "dayNamesShort": "dayNamesShort"; "dayNamesLong": "dayNamesLong"; "dateDisabled": "dateDisabled"; "date": "date"; "showToday": "showToday"; "firstDayOfWeek": "firstDayOfWeek"; "relativeYearFrom": "relativeYearFrom"; "relativeYearTo": "relativeYearTo"; "min": "min"; "max": "max"; "todayLabel": "todayLabel"; "previousMonthLabel": "previousMonthLabel"; "nextMonthLabel": "nextMonthLabel"; }, { "updateSize": "updateSize"; "dateChange": "dateChange"; }, never, never, false, never>;
 }

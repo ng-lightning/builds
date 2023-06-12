@@ -1,6 +1,7 @@
 import { QueryList, EventEmitter, OnChanges, SimpleChanges, ElementRef } from '@angular/core';
 import { NglCarouselImage } from './carousel-image';
 import { NglCarouselIndicator } from './carousel-indicator';
+import * as i0 from "@angular/core";
 export declare class NglCarousel implements OnChanges {
     private document;
     active: any;
@@ -37,4 +38,6 @@ export declare class NglCarousel implements OnChanges {
     playLabel(): string;
     private activateNext;
     private setTimer;
+    static ɵfac: i0.ɵɵFactoryDeclaration<NglCarousel, [{ optional: true; }]>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<NglCarousel, "ngl-carousel", never, { "active": "active"; "scrollDuration": "scrollDuration"; "autoScroll": "autoScroll"; "autoRefresh": "autoRefresh"; "labels": "labels"; }, { "activeChange": "activeChange"; }, ["images"], ["*"], false, never>;
 }

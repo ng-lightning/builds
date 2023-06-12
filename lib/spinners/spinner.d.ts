@@ -1,5 +1,6 @@
 import { ElementRef, Renderer2, OnInit, OnChanges } from '@angular/core';
 import { HostService } from '../common/host/host.service';
+import * as i0 from "@angular/core";
 export declare class NglSpinner implements OnInit, OnChanges {
     private element;
     private renderer;
@@ -20,4 +21,6 @@ export declare class NglSpinner implements OnInit, OnChanges {
     ngOnInit(): void;
     ngOnChanges(): void;
     private setHostClass;
+    static ɵfac: i0.ɵɵFactoryDeclaration<NglSpinner, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<NglSpinner, "ngl-spinner", never, { "size": "size"; "variant": "variant"; "alternativeText": "alternativeText"; }, {}, never, never, false, never>;
 }

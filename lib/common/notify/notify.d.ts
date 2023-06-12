@@ -1,4 +1,5 @@
 import { ChangeDetectorRef, ElementRef, EventEmitter, OnDestroy, Renderer2 } from '@angular/core';
+import * as i0 from "@angular/core";
 export declare abstract class NglCommonNotify implements OnDestroy {
     private element;
     private renderer;
@@ -29,4 +30,6 @@ export declare abstract class NglCommonNotify implements OnDestroy {
     ngOnDestroy(): void;
     private clearTimeout;
     private toggleThemeClass;
+    static ɵfac: i0.ɵɵFactoryDeclaration<NglCommonNotify, never>;
+    static ɵdir: i0.ɵɵDirectiveDeclaration<NglCommonNotify, never, never, { "variant": "variant"; "iconName": "iconName"; "assistiveText": "assistiveText"; "closeButtonAssistiveText": "closeButtonAssistiveText"; "duration": "duration"; }, { "closeEventEmitter": "close"; }, never, never, false, never>;
 }

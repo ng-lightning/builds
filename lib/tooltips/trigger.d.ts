@@ -2,6 +2,7 @@ import { ElementRef, TemplateRef, ViewContainerRef, OnDestroy, OnChanges, Simple
 import { Overlay } from '@angular/cdk/overlay';
 import { Placement } from '../util/overlay-position';
 import { NglTooltipConfig } from './config';
+import * as i0 from "@angular/core";
 export declare class NglTooltipTrigger implements OnChanges, OnDestroy {
     private element;
     private renderer;
@@ -78,4 +79,6 @@ export declare class NglTooltipTrigger implements OnChanges, OnDestroy {
      * Set inputs of child components when this component's inputs change.
      */
     private updateProxies;
+    static ɵfac: i0.ɵɵFactoryDeclaration<NglTooltipTrigger, [{ optional: true; }, null, null, null, null]>;
+    static ɵdir: i0.ɵɵDirectiveDeclaration<NglTooltipTrigger, "[nglTooltip]", ["nglTooltip"], { "template": "nglTooltip"; "placement": "nglTooltipPlacement"; "delay": "nglTooltipDelay"; "nglOpen": "nglTooltipOpen"; "openAuto": "nglTooltipOpenAuto"; "interactive": "nglTooltipInteractive"; "tooltipClass": "nglTooltipClass"; }, { "nglTooltipOpenChange": "nglTooltipOpenChange"; }, never, never, false, never>;
 }

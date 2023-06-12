@@ -1,5 +1,6 @@
 import { ElementRef, Renderer2, TemplateRef, OnChanges, SimpleChanges } from '@angular/core';
 import { ControlValueAccessor, Validator, AbstractControl, ValidationErrors } from '@angular/forms';
+import * as i0 from "@angular/core";
 export declare class NglFileUpload implements ControlValueAccessor, Validator, OnChanges {
     private element;
     private renderer;
@@ -52,4 +53,6 @@ export declare class NglFileUpload implements ControlValueAccessor, Validator, O
     onDropZone(evt: DragEvent): void;
     onInputChange(files: FileList): void;
     private select;
+    static ɵfac: i0.ɵɵFactoryDeclaration<NglFileUpload, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<NglFileUpload, "ngl-file-upload", never, { "label": "label"; "accept": "accept"; "disabled": "disabled"; "maxFiles": "maxFiles"; "maxFilesize": "maxFilesize"; "error": "error"; "uploadButtonLabel": "uploadButtonLabel"; "dropZoneLabel": "dropZoneLabel"; }, {}, never, never, false, never>;
 }

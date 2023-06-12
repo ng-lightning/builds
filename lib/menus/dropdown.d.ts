@@ -1,5 +1,6 @@
 import { EventEmitter, ElementRef, OnInit, OnDestroy, QueryList, Renderer2 } from '@angular/core';
 import { NglDropdownItem } from './dropdown-item';
+import * as i0 from "@angular/core";
 export declare class NglDropdown implements OnInit, OnDestroy {
     element: ElementRef;
     renderer: Renderer2;
@@ -26,4 +27,6 @@ export declare class NglDropdown implements OnInit, OnDestroy {
     private clearGlobalClickTimeout;
     private focusItem;
     private handleDropdownOpenEvent;
+    static ɵfac: i0.ɵɵFactoryDeclaration<NglDropdown, never>;
+    static ɵdir: i0.ɵɵDirectiveDeclaration<NglDropdown, "[nglDropdown]", never, { "isOpen": "open"; "handlePageEvents": "handlePageEvents"; }, { "isOpenChange": "openChange"; }, ["items"], never, false, never>;
 }

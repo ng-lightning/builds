@@ -1,4 +1,5 @@
 import { EventEmitter, OnChanges } from '@angular/core';
+import * as i0 from "@angular/core";
 export interface NglPage {
     number: number | string;
     disabled?: boolean;
@@ -32,4 +33,6 @@ export declare class NglPagination implements OnChanges {
      * Calculate first and last visible page numbers
      */
     private limits;
+    static ɵfac: i0.ɵɵFactoryDeclaration<NglPagination, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<NglPagination, "ngl-pagination", ["nglPagination"], { "page": "page"; "total": "total"; "perPage": "perPage"; "limit": "limit"; "boundaryNumbers": "boundaryNumbers"; "firstText": "firstText"; "previousText": "previousText"; "nextText": "nextText"; "lastText": "lastText"; "boundaryLinks": "boundaryLinks"; }, { "pageChange": "pageChange"; }, never, never, false, never>;
 }

@@ -1,6 +1,7 @@
 import { ChangeDetectorRef, QueryList, EventEmitter, AfterContentInit, OnDestroy } from '@angular/core';
 import { NglDatatableColumn } from './column';
 import { NglDatatableLoadingOverlay, NglDatatableNoRowsOverlay } from './overlays';
+import * as i0 from "@angular/core";
 export interface INglDatatableSort {
     key: string;
     order: 'asc' | 'desc';
@@ -30,4 +31,6 @@ export declare class NglDatatable implements AfterContentInit, OnDestroy {
     onRowClick(event: Event, data: any): void;
     ngAfterContentInit(): void;
     ngOnDestroy(): void;
+    static ɵfac: i0.ɵɵFactoryDeclaration<NglDatatable, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<NglDatatable, "table[ngl-datatable]", never, { "data": "data"; "trackByKey": "trackByKey"; "sort": "sort"; "loading": "loading"; }, { "sortChange": "sortChange"; "rowClick": "rowClick"; }, ["loadingOverlay", "noRowsOverlay", "columns"], never, false, never>;
 }

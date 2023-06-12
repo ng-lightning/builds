@@ -7,9 +7,10 @@ export interface IReplaceClass {
     element: ElementRef;
 }
 export declare function replaceClass(instance: IReplaceClass, oldClass: string | string[], newClass?: string | string[]): void;
-export declare function ngClassCombine(ngClasses: string | string[] | Set<string> | {
+declare type NgClassType = string | string[] | Set<string> | {
     [klass: string]: any;
-}, customClasses: {
+};
+export declare function ngClassCombine(ngClasses: NgClassType, customClasses: {
     [klass: string]: any;
 }): {
     [klass: string]: any;
@@ -25,3 +26,4 @@ export declare function isOptionSelected(value: string | number | any, selection
 export declare function addOptionToSelection(value: string | number | any, selection: any | any[], multiple: boolean, clearable?: boolean): any;
 export declare function menuItemScroll(container: any, domItem: any, scrollPadding?: number): void;
 export declare function trapEvent(event: Event): void;
+export {};

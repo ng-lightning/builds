@@ -1,5 +1,6 @@
 import { TemplateRef, AfterContentInit, ChangeDetectorRef, OnChanges, OnDestroy } from '@angular/core';
 import { NglTextareaInput } from '../input/input';
+import * as i0 from "@angular/core";
 export declare class NglTextarea implements OnChanges, AfterContentInit, OnDestroy {
     private cd;
     input: NglTextareaInput;
@@ -15,4 +16,6 @@ export declare class NglTextarea implements OnChanges, AfterContentInit, OnDestr
     ngOnChanges(): void;
     ngAfterContentInit(): void;
     ngOnDestroy(): void;
+    static ɵfac: i0.ɵɵFactoryDeclaration<NglTextarea, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<NglTextarea, "ngl-textarea,[ngl-textarea]", never, { "label": "label"; "fieldLevelHelpTooltip": "fieldLevelHelpTooltip"; "error": "error"; }, {}, ["input"], ["*"], false, never>;
 }

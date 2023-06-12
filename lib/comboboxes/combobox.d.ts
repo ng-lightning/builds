@@ -5,6 +5,7 @@ import { NglComboboxOption } from './combobox-option';
 import { NglComboboxInput } from './combobox-input';
 import { NglComboboxService } from './combobox.service';
 import { NglComboboxConfig } from './config';
+import * as i0 from "@angular/core";
 export interface NglComboboxOptionItem {
     value: number | string;
     label?: string;
@@ -86,4 +87,6 @@ export declare class NglCombobox implements OnChanges, OnDestroy, AfterContentIn
     private keyboardSubscribe;
     private updateMenuHeight;
     private calculateErrors;
+    static ɵfac: i0.ɵɵFactoryDeclaration<NglCombobox, [{ optional: true; }, null, null, null]>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<NglCombobox, "ngl-combobox", never, { "variant": "variant"; "label": "label"; "open": "open"; "selection": "selection"; "multiple": "multiple"; "visibleLength": "visibleLength"; "loading": "loading"; "loadingMore": "loadingMore"; "closeOnSelection": "closeOnSelection"; "loadingLabel": "loadingLabel"; "noOptionsFound": "noOptionsFound"; "removeSelectedLabel": "removeSelectedLabel"; "data": "options"; "selectionValueFn": "selectionValueFn"; }, { "openChange": "openChange"; "selectionChange": "selectionChange"; }, ["inputEl"], ["input"], false, never>;
 }

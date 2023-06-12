@@ -2,6 +2,7 @@ import { ElementRef, EventEmitter, OnChanges, SimpleChanges, AfterContentInit, O
 import { FocusTrapFactory } from '@angular/cdk/a11y';
 import { Overlay } from '@angular/cdk/overlay';
 import { NglModalHeaderTemplate, NglModalTaglineTemplate, NglModalFooterTemplate } from './templates';
+import * as i0 from "@angular/core";
 export declare class NglModal implements OnChanges, AfterContentInit, OnDestroy {
     private focusTrapFactory;
     private document;
@@ -48,4 +49,6 @@ export declare class NglModal implements OnChanges, AfterContentInit, OnDestroy 
         "slds-theme_default": boolean;
     };
     private handleOpen;
+    static ɵfac: i0.ɵɵFactoryDeclaration<NglModal, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<NglModal, "ngl-modal", never, { "header": "header"; "size": "size"; "directional": "directional"; "open": "open"; "closeButtonAssistiveText": "closeButtonAssistiveText"; "dismissOnClickOutside": "dismissOnClickOutside"; "prompt": "prompt"; }, { "openChange": "openChange"; }, ["headerTpl", "taglineTpl", "footer"], ["*"], false, never>;
 }

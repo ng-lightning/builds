@@ -1,6 +1,7 @@
 import { EventEmitter, TemplateRef, OnInit, AfterContentInit } from '@angular/core';
 import { NglRatingIconTemplate } from './icons';
 import { NglRatingConfig } from './config';
+import * as i0 from "@angular/core";
 export declare class NglRating implements OnInit, AfterContentInit {
     range: number[];
     currentRate: number;
@@ -30,4 +31,6 @@ export declare class NglRating implements OnInit, AfterContentInit {
     keyboardDecrease(evt: KeyboardEvent): void;
     get ariaValuenow(): number;
     private setRange;
+    static ɵfac: i0.ɵɵFactoryDeclaration<NglRating, [{ optional: true; }]>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<NglRating, "ngl-rating", never, { "icon": "icon"; "size": "size"; "readonly": "isReadonly"; "rate": "rate"; "max": "max"; "colorOn": "colorOn"; "colorOff": "colorOff"; }, { "rateChange": "rateChange"; "hover": "hover"; }, ["iconTemplate"], never, false, never>;
 }

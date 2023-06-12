@@ -1,5 +1,6 @@
 import { ElementRef, Renderer2, OnInit, OnChanges } from '@angular/core';
 import { HostService } from '../common/host/host.service';
+import * as i0 from "@angular/core";
 export declare class NglButtonIcon implements OnInit, OnChanges {
     private el;
     private hostService;
@@ -41,4 +42,6 @@ export declare class NglButtonIcon implements OnInit, OnChanges {
     };
     private setHostClass;
     private hasVariant;
+    static ɵfac: i0.ɵɵFactoryDeclaration<NglButtonIcon, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<NglButtonIcon, "[nglButtonIcon]", never, { "iconName": "iconName"; "title": "title"; "alternativeText": "alternativeText"; "variant": "variant"; "size": "size"; "svgClass": "svgClass"; }, {}, never, ["*"], false, never>;
 }

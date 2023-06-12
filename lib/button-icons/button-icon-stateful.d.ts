@@ -1,5 +1,6 @@
 import { ElementRef, Renderer2, OnInit, OnChanges, EventEmitter } from '@angular/core';
 import { HostService } from '../common/host/host.service';
+import * as i0 from "@angular/core";
 export declare class NglButtonIconStateful implements OnInit, OnChanges {
     private el;
     private hostService;
@@ -37,4 +38,6 @@ export declare class NglButtonIconStateful implements OnInit, OnChanges {
     ngOnInit(): void;
     ngOnChanges(): void;
     private setHostClass;
+    static ɵfac: i0.ɵɵFactoryDeclaration<NglButtonIconStateful, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<NglButtonIconStateful, "[nglButtonIconStateful]", never, { "selected": "selected"; "iconName": "iconName"; "title": "title"; "alternativeText": "alternativeText"; "variant": "variant"; "size": "size"; }, { "selectedChange": "selectedChange"; }, never, ["*"], false, never>;
 }

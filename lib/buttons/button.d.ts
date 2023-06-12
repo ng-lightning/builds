@@ -1,5 +1,6 @@
 import { ElementRef, Renderer2, OnInit, OnChanges, SimpleChanges } from '@angular/core';
 import { HostService } from '../common/host/host.service';
+import * as i0 from "@angular/core";
 export declare class NglButton implements OnInit, OnChanges {
     private el;
     private renderer;
@@ -23,4 +24,6 @@ export declare class NglButton implements OnInit, OnChanges {
     hasLeftIcon(): boolean;
     hasRightIcon(): boolean;
     private setHostClass;
+    static ɵfac: i0.ɵɵFactoryDeclaration<NglButton, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<NglButton, "[nglButton]", never, { "variant": "variant"; "iconName": "iconName"; "iconPosition": "iconPosition"; }, {}, never, ["*"], false, never>;
 }

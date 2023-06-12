@@ -23,20 +23,32 @@
     "tslib": "^2.0.0"
   },
   "peerDependencies": {
-    "@angular/cdk": "^9.0.0",
-    "@angular/common": "^9.0.0",
-    "@angular/core": "^9.0.0",
-    "@angular/forms": "^9.0.0"
+    "@angular/cdk": "^15.2.9",
+    "@angular/common": "^15.2.9",
+    "@angular/core": "^15.2.9",
+    "@angular/forms": "^15.2.9"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },
-  "main": "bundles/ng-lightning.umd.js",
-  "module": "fesm2015/ng-lightning.js",
-  "es2015": "fesm2015/ng-lightning.js",
-  "esm2015": "esm2015/ng-lightning.js",
-  "fesm2015": "fesm2015/ng-lightning.js",
-  "typings": "ng-lightning.d.ts",
-  "metadata": "ng-lightning.metadata.json",
+  "module": "fesm2015/ng-lightning.mjs",
+  "es2020": "fesm2020/ng-lightning.mjs",
+  "esm2020": "esm2020/ng-lightning.mjs",
+  "fesm2020": "fesm2020/ng-lightning.mjs",
+  "fesm2015": "fesm2015/ng-lightning.mjs",
+  "typings": "index.d.ts",
+  "exports": {
+    "./package.json": {
+      "default": "./package.json"
+    },
+    ".": {
+      "types": "./index.d.ts",
+      "esm2020": "./esm2020/ng-lightning.mjs",
+      "es2020": "./fesm2020/ng-lightning.mjs",
+      "es2015": "./fesm2015/ng-lightning.mjs",
+      "node": "./fesm2015/ng-lightning.mjs",
+      "default": "./fesm2020/ng-lightning.mjs"
+    }
+  },
   "sideEffects": false
 }

@@ -1,6 +1,7 @@
 import { EventEmitter, QueryList, NgZone, OnChanges, SimpleChanges } from '@angular/core';
 import { NglInternalDate } from './util';
 import { NglDay } from './day';
+import * as i0 from "@angular/core";
 interface INglDayCell extends NglInternalDate {
     today: boolean;
     isCurrentMonth: boolean;
@@ -9,14 +10,14 @@ interface INglDayCell extends NglInternalDate {
 }
 export declare class NglDatepickerMonth implements OnChanges {
     private ngZone;
-    readonly selected: NglInternalDate;
-    readonly year: number;
-    readonly month: number;
-    readonly day: number;
-    readonly firstDayOfWeek: number;
-    readonly minDate: NglInternalDate;
-    readonly maxDate: NglInternalDate;
-    readonly dateDisabled: (date: Date) => boolean | null;
+    selected: NglInternalDate;
+    year: number;
+    month: number;
+    day: number;
+    firstDayOfWeek: number;
+    minDate: NglInternalDate;
+    maxDate: NglInternalDate;
+    dateDisabled: (date: Date) => boolean | null;
     selectDate: EventEmitter<NglInternalDate>;
     days: QueryList<NglDay>;
     weeks: INglDayCell[][];
@@ -38,5 +39,7 @@ export declare class NglDatepickerMonth implements OnChanges {
     private updateDisabled;
     /** Date filter for the month */
     private isDisabled;
+    static ɵfac: i0.ɵɵFactoryDeclaration<NglDatepickerMonth, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<NglDatepickerMonth, "[nglDatepickerMonth]", never, { "selected": "selected"; "year": "year"; "month": "month"; "day": "day"; "firstDayOfWeek": "firstDayOfWeek"; "minDate": "minDate"; "maxDate": "maxDate"; "dateDisabled": "dateDisabled"; }, { "selectDate": "selectDate"; }, never, never, false, never>;
 }
 export {};

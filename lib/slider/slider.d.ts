@@ -1,5 +1,6 @@
 import { ElementRef, Renderer2, TemplateRef, ChangeDetectorRef, EventEmitter } from '@angular/core';
 import { ControlValueAccessor } from '@angular/forms';
+import * as i0 from "@angular/core";
 export declare class NglSlider implements ControlValueAccessor {
     private element;
     private renderer;
@@ -55,4 +56,6 @@ export declare class NglSlider implements ControlValueAccessor {
         "slds-slider_vertical": boolean;
     };
     private limit;
+    static ɵfac: i0.ɵɵFactoryDeclaration<NglSlider, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<NglSlider, "ngl-slider", never, { "label": "label"; "min": "min"; "max": "max"; "step": "step"; "vertical": "vertical"; "size": "size"; "disabled": "disabled"; "error": "error"; "value": "value"; }, { "valueChange": "valueChange"; }, never, never, false, never>;
 }

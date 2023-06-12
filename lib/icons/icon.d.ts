@@ -1,5 +1,6 @@
 import { OnInit, OnChanges, ElementRef } from '@angular/core';
 import { HostService } from '../common/host/host.service';
+import * as i0 from "@angular/core";
 export declare class NglIcon implements OnInit, OnChanges {
     private el;
     private hostService;
@@ -31,4 +32,6 @@ export declare class NglIcon implements OnInit, OnChanges {
         [klass: string]: any;
     };
     private setHostClass;
+    static ɵfac: i0.ɵɵFactoryDeclaration<NglIcon, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<NglIcon, "ngl-icon, [ngl-icon]", never, { "iconName": "iconName"; "variant": "variant"; "size": "size"; "alternativeText": "alternativeText"; "svgClass": "svgClass"; }, {}, never, ["*"], false, never>;
 }

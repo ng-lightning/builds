@@ -1,5 +1,6 @@
 import { EventEmitter, ElementRef, Renderer2, OnInit, OnChanges } from '@angular/core';
 import { HostService } from '../common/host/host.service';
+import * as i0 from "@angular/core";
 export declare class NglAvatar implements OnInit, OnChanges {
     private element;
     private hostService;
@@ -18,4 +19,6 @@ export declare class NglAvatar implements OnInit, OnChanges {
     ngOnInit(): void;
     ngOnChanges(): void;
     private setHostClass;
+    static ɵfac: i0.ɵɵFactoryDeclaration<NglAvatar, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<NglAvatar, "ngl-avatar", never, { "src": "src"; "alternativeText": "alternativeText"; "size": "size"; "variant": "variant"; "initials": "initials"; "fallbackIconName": "fallbackIconName"; }, { "error": "error"; }, never, never, false, never>;
 }
